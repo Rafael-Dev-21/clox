@@ -1,0 +1,21 @@
+name: Linux C Build CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+  workflow_dispatch:
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: xmake-io/github-action-set
+      - with:
+        xmake-version: latest
+      - name: xmake
+        run: xmake
