@@ -1,15 +1,17 @@
+set_project("clox")
 add_rules("mode.debug", "mode.release")
 
 target("clox")
     set_kind("binary")
     set_warnings("all", "error")
     if(is_mode("debug")) then
-      add_defines("DEBUG")
+      add_defines("DEBUG_TRACE_EXECUTION")
     end
     if(is_mode("release")) then
       set_optimize("fastest")
     end
     add_files("src/*.c")
+    add_installfiles("**.md")
 
 --
 -- If you want to known more usage about xmake, please see https://xmake.io
