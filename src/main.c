@@ -22,7 +22,13 @@ static void repl() {
 }
 
 static char* readFile(const char* path) {
-    FILE* file = fopen(path, "rb");
+    FILE* file;
+
+#ifdef WIN32
+    fopen_s(file, path, "rb");
+#else
+    file = fopen(path, "rb");
+#endif
     if (file == NULL) {
         fprintf(stderr, "Could not open file \"%s\".\n", path);
         exit(74);
