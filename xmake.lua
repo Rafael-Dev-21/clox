@@ -3,7 +3,7 @@ add_rules("mode.debug", "mode.release")
 
 target("clox")
     set_kind("binary")
-    set_warnings("all", "error")
+    --set_warnings("all", "error")
     if(is_mode("debug")) then
       add_defines("DEBUG_TRACE_EXECUTION")
     end
