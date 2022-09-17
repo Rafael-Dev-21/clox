@@ -24,8 +24,8 @@ static void repl() {
 static char* readFile(const char* path) {
     FILE* file;
 
-#if defined(WIN32) || defined(_WIN32) || defined(__WIN32) || defined(_WIN64) || !defined(__CYGWIN__)
-    fopen_s(file, path, "rb");
+#if (defined(WIN32) || defined(_WIN32) || defined(__WIN32) || defined(_WIN64)) && !defined(__CYGWIN__)
+    fopen_s(&file, path, "rb");
 #else
     file = fopen(path, "rb");
 #endif
