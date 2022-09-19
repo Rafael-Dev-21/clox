@@ -1,6 +1,6 @@
 /** @file common.h
-  * The common includes
-  */
+ * The common includes
+ */
 
 #ifndef clox_common_h
 #define clox_common_h
